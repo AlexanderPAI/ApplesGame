@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <string>
+#include <SFML/Graphics.hpp>
 #include "Math.h"
 
 namespace ApplesGame
@@ -41,5 +42,18 @@ namespace ApplesGame
 		float deltaPosY = (float)fabs(rect1Position.y - rect2Position.y);
 
 		return (deltaPosX <= (rect1Size.x + rect2Size.x) / 2.f && deltaPosY <= (rect1Size.y + rect1Size.y) / 2.f);
+	}
+
+	void SetSpriteSize(sf::Sprite& sprite, float desiredWidth, float desiredHeight)
+	{
+		sf::FloatRect spriteRect = sprite.getLocalBounds();
+		sf::Vector2f scale = { desiredHeight / spriteRect.width, desiredHeight / spriteRect.height };
+		sprite.setScale(scale);
+	}
+
+	void SetSpriteRelativeOrigin(sf::Sprite& sprite, float originX, float originY)
+	{
+		sf::FloatRect spriteRect = sprite.getLocalBounds();
+		sprite.setOrigin(originX * spriteRect.width, originY * spriteRect.height);
 	}
 }

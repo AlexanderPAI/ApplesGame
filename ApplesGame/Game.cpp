@@ -1,4 +1,5 @@
 #pragma once
+#include <cassert>
 #include "Game.h"
 #include "UI.h"
 
@@ -11,6 +12,7 @@ namespace ApplesGame
 		game.isGameOver = false;
 		game.pauseTime = 5.f;
 		game.numEatenApples = 0;
+		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\\Player.png"));
 
 		// UI
 		game.numEatenApples = 0;
@@ -18,7 +20,7 @@ namespace ApplesGame
 		game.scoreCounterLabel = InitUI(game.font);
 
 		// Player
-		InitPlayer(game.player);
+		InitPlayer(game.player, game);
 
 		// Apples
 		for (int i = 0; i < NUM_APPLES; ++i)
@@ -147,8 +149,7 @@ namespace ApplesGame
 
 		window.draw(game.scoreCounterLabel);
 
-		game.player.shape.setPosition(game.player.position.x, game.player.position.y);
-		window.draw(game.player.shape);
+		RenderPlayer(game.player, window);
 
 		for (int i = 0; i < NUM_APPLES; ++i)
 		{
