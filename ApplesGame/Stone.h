@@ -3,11 +3,14 @@
 #include "Constants.h"
 #include "Math.h"
 
-struct Stone
+namespace ApplesGame
 {
-	Position2D position;
-	sf::RectangleShape shape;
-	float size = STONE_SIZE;
-};
+	struct Stone
+	{
+		Position2D position;
+		sf::RectangleShape shape;
+		float size = STONE_SIZE;
+	};
 
-void InitStone(Stone& stone, float screenWidth, float screenHeight);
+	void InitStone(Stone& stone, float screenWidth, float screenHeight);
+}
