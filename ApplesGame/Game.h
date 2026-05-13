@@ -1,0 +1,35 @@
+#pragma once
+#include <SFML/Graphics.hpp>
+#include "Apple.h"
+#include "Constants.h"
+#include "Math.h"
+#include "Player.h"
+#include "Stone.h"
+
+struct Game
+{
+	Player player;
+	Apple apples[NUM_APPLES];
+	Stone stones[NUM_STONES];
+
+	// Global game data
+	bool isGameOver = false;
+	bool isPaused = false;
+	float pauseTime = 5.f;
+	float pauseTimeLeft = 0.f;
+	int numEatenApples = 0;
+
+	// UI
+	sf::Font font;
+	sf::Text scoreCounterLabel;
+};
+
+void initGame(Game& game);
+
+void updateGame(Game& game, float deltaTime);
+
+void deinitializeGame(Game& game);
+
+void restartGame(Game& game);
+
+void renderGame(Game& game, sf::RenderWindow& window);
