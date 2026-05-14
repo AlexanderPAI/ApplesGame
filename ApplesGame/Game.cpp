@@ -16,7 +16,7 @@ namespace ApplesGame
 
 		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Player.png"));
 		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Apple.png"));
-		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Rock.png"));
+		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Rock.png")); 
 
 		// buffer has lifetime
 		game.appleEatSoundBuffer.loadFromFile(RESOURCES_PATH + "\\Sounds\\AppleEat.wav");   
@@ -45,6 +45,7 @@ namespace ApplesGame
 			if (game.isGameOver)
 			{
 				restartGame(game);
+				game.deathSound.play();
 			}
 		}
 		else
