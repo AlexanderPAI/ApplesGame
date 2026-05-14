@@ -11,9 +11,11 @@ namespace ApplesGame
 		{
 			if (IsCircleCollide(game.player.position, { PLAYER_SIZE, PLAYER_SIZE }, game.apples[i].position, { APPLE_SIZE, APPLE_SIZE }))
 			{
+				game.appleEatSound.play();
 				InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT, game);
 				IncreaseScoreCounter(game);
 				game.player.speed += ACCELERATION;
+
 			}
 		}
 	}
