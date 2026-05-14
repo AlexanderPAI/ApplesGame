@@ -6,6 +6,7 @@ namespace ApplesGame
 	sf::Font InitFont();
 	sf::Text InitLabel(sf::Font& font);
 	void InitUI(Game& game);
+	void ShowGameOverLabel(Game& game);
 
 	struct Game;
 

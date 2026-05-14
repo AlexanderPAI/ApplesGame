@@ -14,20 +14,28 @@ namespace ApplesGame
 
 	sf::Text InitLabel(sf::Font& font)
 	{
-		sf::Text scoreCounterLabel;
-		scoreCounterLabel.setFont(font);
-		scoreCounterLabel.setCharacterSize(14);
-		scoreCounterLabel.setString("Scores: 0");
-		scoreCounterLabel.setFillColor(sf::Color::White);
-		scoreCounterLabel.setPosition(20, 20);
-		return scoreCounterLabel;
+		sf::Text uiLabel;
+		uiLabel.setFont(font);
+		uiLabel.setCharacterSize(14);
+		uiLabel.setString("Scores: 0");
+		uiLabel.setFillColor(sf::Color::White);
+		uiLabel.setPosition(20, 20);
+		return uiLabel;
 	}
 
 	void InitUI(Game& game)
 	{
 		game.numEatenApples = 0;
 		game.font = InitFont();
-		game.scoreCounterLabel = InitLabel(game.font);
+		game.uiLabel = InitLabel(game.font);
+	}
+
+	void ShowGameOverLabel(Game& game)
+	{
+		game.uiLabel.setString("GAME OVER");
+		game.uiLabel.setFillColor(sf::Color::Red);
+		game.uiLabel.setCharacterSize(50);
+
 	}
 
 	struct Game;
@@ -35,6 +43,6 @@ namespace ApplesGame
 	void IncreaseScoreCounter(Game& game)
 	{
 		++game.numEatenApples;
-		game.scoreCounterLabel.setString("Scores: " + std::to_string(game.numEatenApples));
+		game.uiLabel.setString("Scores: " + std::to_string(game.numEatenApples));
 	}
 }

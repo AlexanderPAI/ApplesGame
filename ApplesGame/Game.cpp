@@ -15,8 +15,8 @@ namespace ApplesGame
 		game.numEatenApples = 0;
 
 		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Player.png"));
-		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Apple.png"));
-		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Rock.png")); 
+		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\pixel_apple.png"));
+		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Rock.png"));
 
 		// buffer has lifetime
 		game.appleEatSoundBuffer.loadFromFile(RESOURCES_PATH + "\\Sounds\\AppleEat.wav");   
@@ -46,6 +46,7 @@ namespace ApplesGame
 			{
 				restartGame(game);
 				game.deathSound.play();
+				ShowGameOverLabel(game);
 			}
 		}
 		else
@@ -54,6 +55,7 @@ namespace ApplesGame
 			if (game.pauseTimeLeft <= 0.f)
 			{
 				game.isPaused = false;
+				InitUI(game);
 			}
 		}
 	}
@@ -75,7 +77,7 @@ namespace ApplesGame
 	{
 		// Logic of drawing frame
 
-		window.draw(game.scoreCounterLabel);
+		window.draw(game.uiLabel);
 
 		RenderPlayer(game.player, window);
 		RenderApples(game, window);
