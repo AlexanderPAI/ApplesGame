@@ -24,7 +24,8 @@ namespace ApplesGame
 
 		// UI
 		sf::Font font;
-		sf::Text scoreCounterLabel;
+		sf::Text uiLabel;
+		sf::Text gameOver;
 
 		// Resources
 		sf::Texture playerTexture;
