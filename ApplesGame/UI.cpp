@@ -12,7 +12,7 @@ namespace ApplesGame
 		return font;
 	}
 
-	sf::Text InitUI(sf::Font& font)
+	sf::Text InitLabel(sf::Font& font)
 	{
 		sf::Text scoreCounterLabel;
 		scoreCounterLabel.setFont(font);
@@ -21,6 +21,13 @@ namespace ApplesGame
 		scoreCounterLabel.setFillColor(sf::Color::White);
 		scoreCounterLabel.setPosition(20, 20);
 		return scoreCounterLabel;
+	}
+
+	void InitUI(Game& game)
+	{
+		game.numEatenApples = 0;
+		game.font = InitFont();
+		game.scoreCounterLabel = InitLabel(game.font);
 	}
 
 	struct Game;

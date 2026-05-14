@@ -18,10 +18,7 @@ namespace ApplesGame
 		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Apple.png"));
 		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Rock.png"));
 
-		game.numEatenApples = 0;
-		game.font = InitFont();
-		game.scoreCounterLabel = InitUI(game.font);
-
+		InitUI(game);
 		InitPlayer(game.player, game);
 		InitApples(game);
 		InitStones(game);

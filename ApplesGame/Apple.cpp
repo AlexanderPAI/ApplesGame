@@ -1,8 +1,8 @@
+#include <SFML/Graphics.hpp>
 #include "Apple.h"
 #include "Constants.h"
 #include "Game.h"
 #include "Math.h"
-#include "UI.h"
 
 namespace ApplesGame
 {
