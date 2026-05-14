@@ -1,4 +1,5 @@
 #pragma once
+#include "Constants.h"
 #include "Game.h"
 #include "UI.h"
 
@@ -7,7 +8,7 @@ namespace ApplesGame
 	sf::Font InitFont()
 	{
 		sf::Font font;
-		font.loadFromFile("arial.ttf");
+		font.loadFromFile(RESOURCES_PATH + "\\Fonts\\arial.ttf");
 		return font;
 	}
 

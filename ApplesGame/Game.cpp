@@ -14,9 +14,9 @@ namespace ApplesGame
 		game.pauseTime = 5.f;
 		game.numEatenApples = 0;
 
-		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\\Player.png"));
-		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Apple.png"));
-		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Rock.png"));
+		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Player.png"));
+		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Apple.png"));
+		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Rock.png"));
 
 		game.numEatenApples = 0;
 		game.font = InitFont();

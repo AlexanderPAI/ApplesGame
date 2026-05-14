@@ -15,8 +15,8 @@ int main()
 	// Init window
 	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Apples game!");
 
+	// Init game
 	Game game;
-
 	initGame(game);
 
 	// Sync time
@@ -31,7 +31,7 @@ int main()
 		float deltaTime = currentTime - lastTime;
 		lastTime = currentTime;
 
-		// READ EVENTS
+		// Read events
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -39,16 +39,16 @@ int main()
 				window.close();
 		}
 
-		// UPDATE GAME STATE
+		// Update game state
 		updateGame(game, deltaTime);
 
-		// RENDER GAME
+		// Render game
 		window.clear();
 		renderGame(game, window);
 		window.display();
 	}
 
-	// DEINITIALIZATION
+	// Deinitialization
 	deinitializeGame(game);
 	return 0;
 }
