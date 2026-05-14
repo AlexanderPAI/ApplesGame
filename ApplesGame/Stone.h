@@ -16,5 +16,7 @@ namespace ApplesGame
 	struct Game;
 
 	void InitStone(Stone& stone, float screenWidth, float screenHeight, Game& game);
+	void InitStones(Game& game);
 	void RenderStone(Stone& stone, sf::RenderWindow& window);
+	void RenderStones(Game& game, sf::RenderWindow& window);
 }

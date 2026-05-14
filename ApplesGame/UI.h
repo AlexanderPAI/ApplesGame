@@ -4,5 +4,10 @@
 namespace ApplesGame
 {
 	sf::Font InitFont();
-	sf::Text InitUI(sf::Font& font);
+	sf::Text InitLabel(sf::Font& font);
+	void InitUI(Game& game);
+
+	struct Game;
+
+	void IncreaseScoreCounter(Game& game);
 }
