@@ -16,13 +16,18 @@ namespace ApplesGame
 
 		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Player.png"));
 		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Apple.png"));
-		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Rock.png"));
+		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Textures\\Rock.png")); 
+
+		// buffer has lifetime
+		game.appleEatSoundBuffer.loadFromFile(RESOURCES_PATH + "\\Sounds\\AppleEat.wav");   
+		game.appleEatSound.setBuffer(game.appleEatSoundBuffer);
+		game.deathSoundBuffer.loadFromFile(RESOURCES_PATH + "\\Sounds\\Death.wav");
+		game.deathSound.setBuffer(game.deathSoundBuffer);
 
 		InitUI(game);
 		InitPlayer(game.player, game);
 		InitApples(game);
 		InitStones(game);
-
 	}
 
 	void updateGame(Game& game, float deltaTime)
@@ -40,6 +45,7 @@ namespace ApplesGame
 			if (game.isGameOver)
 			{
 				restartGame(game);
+				game.deathSound.play();
 			}
 		}
 		else

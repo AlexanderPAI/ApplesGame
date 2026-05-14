@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Apple.h"
 #include "Constants.h"
 #include "Math.h"
@@ -25,10 +26,16 @@ namespace ApplesGame
 		sf::Font font;
 		sf::Text scoreCounterLabel;
 
-		//Resources
+		// Resources
 		sf::Texture playerTexture;
 		sf::Texture appleTexture;
 		sf::Texture stoneTexture;
+
+		// Sounds
+		sf::SoundBuffer appleEatSoundBuffer;
+		sf::SoundBuffer deathSoundBuffer;
+		sf::Sound appleEatSound;
+		sf::Sound deathSound;
 	};
 
 	void initGame(Game& game);
