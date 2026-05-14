@@ -1,4 +1,5 @@
 #pragma once
+#include <cassert>
 #include "Game.h"
 #include "UI.h"
 
@@ -11,6 +12,9 @@ namespace ApplesGame
 		game.isGameOver = false;
 		game.pauseTime = 5.f;
 		game.numEatenApples = 0;
+		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\\Player.png"));
+		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Apple.png"));
+		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Rock.png"));
 
 		// UI
 		game.numEatenApples = 0;
@@ -18,18 +22,18 @@ namespace ApplesGame
 		game.scoreCounterLabel = InitUI(game.font);
 
 		// Player
-		InitPlayer(game.player);
+		InitPlayer(game.player, game);
 
 		// Apples
 		for (int i = 0; i < NUM_APPLES; ++i)
 		{
-			InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT);
+			InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT, game);
 		}
 
 		// Stones
 		for (int i = 0; i < NUM_STONES; ++i)
 		{
-			InitStone(game.stones[i], SCREEN_WIDTH, SCREEN_HEIGHT);
+			InitStone(game.stones[i], SCREEN_WIDTH, SCREEN_HEIGHT, game);
 		}
 	}
 
@@ -88,7 +92,7 @@ namespace ApplesGame
 			{
 				if (IsCircleCollide(game.player.position, { PLAYER_SIZE, PLAYER_SIZE }, game.apples[i].position, { APPLE_SIZE, APPLE_SIZE }))
 				{
-					InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT);
+					InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT, game);
 
 					++game.numEatenApples;
 					game.scoreCounterLabel.setString("Scores: " + std::to_string(game.numEatenApples));
@@ -147,17 +151,16 @@ namespace ApplesGame
 
 		window.draw(game.scoreCounterLabel);
 
-		game.player.shape.setPosition(game.player.position.x, game.player.position.y);
-		window.draw(game.player.shape);
+		RenderPlayer(game.player, window);
 
 		for (int i = 0; i < NUM_APPLES; ++i)
 		{
-			window.draw(game.apples[i].shape);
+			RenderApple(game.apples[i], window);
 		}
 
 		for (int i = 0; i < NUM_STONES; ++i)
 		{
-			window.draw(game.stones[i].shape);
+			RenderStone(game.stones[i], window);
 		}
 	}
 }
