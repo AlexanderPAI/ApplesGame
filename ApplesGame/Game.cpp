@@ -46,13 +46,8 @@ namespace ApplesGame
 			MovingPlayer(game.player, deltaTime);
 
 			IsEventEatApple(game);
+			IsEventPlayerBorderCollition(game);
 
-			// Check GameEnd Conditions
-			// Borders collisions
-			if (game.player.position.x - PLAYER_SIZE / 2.f <= 0.f || game.player.position.x + PLAYER_SIZE / 2.f >= SCREEN_WIDTH || game.player.position.y - PLAYER_SIZE / 2.f <= 0.f || game.player.position.y + PLAYER_SIZE / 2.f >= SCREEN_HEIGHT)
-			{
-				game.isGameOver = true;
-			}
 
 			// Stones collisions
 			for (int i = 0; i < NUM_STONES; ++i)

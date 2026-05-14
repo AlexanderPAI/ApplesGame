@@ -1,6 +1,7 @@
 #include "Constants.h"
 #include "Game.h"
 #include "UI.h"
+#include "Events.h"
 
 namespace ApplesGame
 {
@@ -14,6 +15,14 @@ namespace ApplesGame
 				IncreaseScoreCounter(game);
 				game.player.speed += ACCELERATION;
 			}
+		}
+	}
+
+	void IsEventPlayerBorderCollition(Game& game)
+	{
+		if (game.player.position.x - PLAYER_SIZE / 2.f <= 0.f || game.player.position.x + PLAYER_SIZE / 2.f >= SCREEN_WIDTH || game.player.position.y - PLAYER_SIZE / 2.f <= 0.f || game.player.position.y + PLAYER_SIZE / 2.f >= SCREEN_HEIGHT)
+		{
+			game.isGameOver = true;
 		}
 	}
 }
