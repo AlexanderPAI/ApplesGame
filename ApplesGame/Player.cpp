@@ -47,4 +47,31 @@ namespace ApplesGame
 			player.sprite.setRotation(90.f);
 		}
 	}
+
+	void MovingPlayer(Player& player, float deltaTime)
+	{
+		switch (player.direction)
+		{
+		case PlayerDirection::Right:
+		{
+			player.position.x += player.speed * deltaTime;
+			break;
+		}
+		case PlayerDirection::Up:
+		{
+			player.position.y -= player.speed * deltaTime;
+			break;
+		}
+		case PlayerDirection::Left:
+		{
+			player.position.x -= player.speed * deltaTime;
+			break;
+		}
+		case PlayerDirection::Down:
+		{
+			player.position.y += player.speed * deltaTime;
+			break;
+		}
+		}
+	}
 }

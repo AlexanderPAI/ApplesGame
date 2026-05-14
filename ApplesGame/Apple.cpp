@@ -1,6 +1,7 @@
 #include "Apple.h"
 #include "Game.h"
 #include "Math.h"
+#include "UI.h"
 
 namespace ApplesGame
 {
@@ -12,6 +13,7 @@ namespace ApplesGame
 		SetSpriteSize(apple.sprite, APPLE_SIZE, APPLE_SIZE);
 		SetSpriteRelativeOrigin(apple.sprite, 0.5f, 0.5f);
 	}
+	
 	void RenderApple(Apple& apple, sf::RenderWindow& window)
 	{
 		apple.sprite.setPosition(apple.position.x, apple.position.y);

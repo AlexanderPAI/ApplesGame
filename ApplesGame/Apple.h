@@ -16,4 +16,5 @@ namespace ApplesGame
 
 	void InitApple(Apple& apple, float screenWidth, float screenHeigth, Game& game);
 	void RenderApple(Apple& apple, sf::RenderWindow& window);
+	void EventEatApple(Game& game, int index);
 }

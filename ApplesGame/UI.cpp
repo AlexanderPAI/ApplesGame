@@ -1,4 +1,5 @@
 #pragma once
+#include "Game.h"
 #include "UI.h"
 
 namespace ApplesGame
@@ -19,5 +20,13 @@ namespace ApplesGame
 		scoreCounterLabel.setFillColor(sf::Color::White);
 		scoreCounterLabel.setPosition(20, 20);
 		return scoreCounterLabel;
+	}
+
+	struct Game;
+
+	void IncreaseScoreCounter(Game& game)
+	{
+		++game.numEatenApples;
+		game.scoreCounterLabel.setString("Scores: " + std::to_string(game.numEatenApples));
 	}
 }

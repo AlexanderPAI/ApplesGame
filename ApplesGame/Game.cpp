@@ -1,6 +1,7 @@
 #pragma once
 #include <cassert>
 #include "Game.h"
+#include "Events.h"
 #include "UI.h"
 
 namespace ApplesGame
@@ -41,49 +42,10 @@ namespace ApplesGame
 	{
 		if (!game.isPaused)
 		{
-			// Check press keyboard key
 			IsKeyPressedToRotatePlayer(game.player);
+			MovingPlayer(game.player, deltaTime);
 
-			// Update player acceleration
-			//playerSpeed += ACCELERATION * deltaTime;
-
-			// Player moving
-			switch (game.player.direction)
-			{
-			case PlayerDirection::Right:
-			{
-				game.player.position.x += game.player.speed * deltaTime;
-				break;
-			}
-			case PlayerDirection::Up:
-			{
-				game.player.position.y -= game.player.speed * deltaTime;
-				break;
-			}
-			case PlayerDirection::Left:
-			{
-				game.player.position.x -= game.player.speed * deltaTime;
-				break;
-			}
-			case PlayerDirection::Down:
-			{
-				game.player.position.y += game.player.speed * deltaTime;
-				break;
-			}
-			}
-
-			// Logic of eating apples
-			for (int i = 0; i < NUM_APPLES; ++i)
-			{
-				if (IsCircleCollide(game.player.position, { PLAYER_SIZE, PLAYER_SIZE }, game.apples[i].position, { APPLE_SIZE, APPLE_SIZE }))
-				{
-					InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT, game);
-
-					++game.numEatenApples;
-					game.scoreCounterLabel.setString("Scores: " + std::to_string(game.numEatenApples));
-					game.player.speed += ACCELERATION;
-				}
-			}
+			IsEventEatApple(game);
 
 			// Check GameEnd Conditions
 			// Borders collisions
