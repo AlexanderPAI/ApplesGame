@@ -9,8 +9,12 @@ namespace ApplesGame
 	{
 		Position2D position;
 		sf::RectangleShape shape;
+		sf::Sprite sprite;
 		float size = STONE_SIZE;
 	};
 
-	void InitStone(Stone& stone, float screenWidth, float screenHeight);
+	struct Game;
+
+	void InitStone(Stone& stone, float screenWidth, float screenHeight, Game& game);
+	void RenderStone(Stone& stone, sf::RenderWindow& window);
 }

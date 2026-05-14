@@ -14,6 +14,7 @@ namespace ApplesGame
 		game.numEatenApples = 0;
 		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\\Player.png"));
 		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Apple.png"));
+		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Rock.png"));
 
 		// UI
 		game.numEatenApples = 0;
@@ -32,7 +33,7 @@ namespace ApplesGame
 		// Stones
 		for (int i = 0; i < NUM_STONES; ++i)
 		{
-			InitStone(game.stones[i], SCREEN_WIDTH, SCREEN_HEIGHT);
+			InitStone(game.stones[i], SCREEN_WIDTH, SCREEN_HEIGHT, game);
 		}
 	}
 
@@ -159,7 +160,7 @@ namespace ApplesGame
 
 		for (int i = 0; i < NUM_STONES; ++i)
 		{
-			window.draw(game.stones[i].shape);
+			RenderStone(game.stones[i], window);
 		}
 	}
 }
