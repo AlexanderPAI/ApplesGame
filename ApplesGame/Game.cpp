@@ -47,16 +47,11 @@ namespace ApplesGame
 
 			IsEventEatApple(game);
 			IsEventPlayerBorderCollition(game);
+			IsEventPlayerStoneCollition(game);
 
 
 			// Stones collisions
-			for (int i = 0; i < NUM_STONES; ++i)
-			{
-				if (IsRectangleCollide(game.player.position, { PLAYER_SIZE, PLAYER_SIZE }, game.stones[i].position, { STONE_SIZE, STONE_SIZE }))
-				{
-					game.isGameOver = true;
-				}
-			}
+
 
 			// Restart
 			if (game.isGameOver)

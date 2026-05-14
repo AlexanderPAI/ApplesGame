@@ -10,6 +10,7 @@ namespace ApplesGame
 		player.position = { SCREEN_WIDTH / 2.f, SCREEN_HEIGHT / 2.f };
 		player.speed = INITIAL_SPEED;
 		player.direction = PlayerDirection::Right;
+		player.sprite.setRotation(0.f);
 
 		player.sprite.setTexture(game.playerTexture);
 		SetSpriteSize(player.sprite, PLAYER_SIZE, PLAYER_SIZE);
