@@ -8,9 +8,12 @@ namespace ApplesGame
 	struct Apple
 	{
 		Position2D position;
-		sf::CircleShape shape;
+		sf::Sprite sprite;
 		float size = APPLE_SIZE;
 	};
 
-	void InitApple(Apple& apple, float screenWidth, float screenHeigth);
+	struct Game;
+
+	void InitApple(Apple& apple, float screenWidth, float screenHeigth, Game& game);
+	void RenderApple(Apple& apple, sf::RenderWindow& window);
 }

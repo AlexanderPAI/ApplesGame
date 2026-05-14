@@ -13,6 +13,7 @@ namespace ApplesGame
 		game.pauseTime = 5.f;
 		game.numEatenApples = 0;
 		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\\Player.png"));
+		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Apple.png"));
 
 		// UI
 		game.numEatenApples = 0;
@@ -25,7 +26,7 @@ namespace ApplesGame
 		// Apples
 		for (int i = 0; i < NUM_APPLES; ++i)
 		{
-			InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT);
+			InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT, game);
 		}
 
 		// Stones
@@ -90,7 +91,7 @@ namespace ApplesGame
 			{
 				if (IsCircleCollide(game.player.position, { PLAYER_SIZE, PLAYER_SIZE }, game.apples[i].position, { APPLE_SIZE, APPLE_SIZE }))
 				{
-					InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT);
+					InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT, game);
 
 					++game.numEatenApples;
 					game.scoreCounterLabel.setString("Scores: " + std::to_string(game.numEatenApples));
@@ -153,7 +154,7 @@ namespace ApplesGame
 
 		for (int i = 0; i < NUM_APPLES; ++i)
 		{
-			window.draw(game.apples[i].shape);
+			RenderApple(game.apples[i], window);
 		}
 
 		for (int i = 0; i < NUM_STONES; ++i)

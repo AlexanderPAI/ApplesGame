@@ -27,6 +27,7 @@ namespace ApplesGame
 
 		//Resources
 		sf::Texture playerTexture;
+		sf::Texture appleTexture;
 	};
 
 	void initGame(Game& game);
