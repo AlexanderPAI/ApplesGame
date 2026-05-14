@@ -9,18 +9,11 @@ namespace ApplesGame
 	{
 		Position2D result;
 
-		if (object == "apple")
+		if (object == "apple" || object == "stone")
 		{
-
-			float radius = objectSize / 2.f;
-			result.x = rand() / (float)RAND_MAX * (screenWidth - 2 * radius) + radius;
-			result.y = rand() / (float)RAND_MAX * (screenHeight - 2 * radius) + radius;
-			return result;
-		}
-		else if (object == "stone")
-		{
-			result.x = rand() / (float)RAND_MAX * (screenWidth - objectSize) + objectSize / 2.f;
-			result.y = rand() / (float)RAND_MAX * (screenHeight - objectSize) + objectSize / 2.f;
+			float halfSize = objectSize / 2.f;
+			result.x = rand() / (float)RAND_MAX * (screenWidth - 2 * halfSize) + halfSize;
+			result.y = rand() / (float)RAND_MAX * (screenHeight - 2 * halfSize) + halfSize;
 			return result;
 		}
 		else

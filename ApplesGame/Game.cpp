@@ -45,18 +45,23 @@ namespace ApplesGame
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 			{
 				game.player.direction = PlayerDirection::Right;
+				game.player.sprite.setRotation(0.f);
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 			{
 				game.player.direction = PlayerDirection::Up;
+				game.player.sprite.setRotation(-90.f);
+				
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 			{
 				game.player.direction = PlayerDirection::Left;
+				game.player.sprite.setRotation(180.f);
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 			{
 				game.player.direction = PlayerDirection::Down;
+				game.player.sprite.setRotation(90.f);
 			}
 
 			// Update player acceleration
