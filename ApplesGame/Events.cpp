@@ -1,7 +1,6 @@
 #include "Constants.h"
 #include "Game.h"
 #include "UI.h"
-#include "Constants.h"
 #include "Events.h"
 
 namespace ApplesGame

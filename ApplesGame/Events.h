@@ -7,4 +7,5 @@ namespace ApplesGame
 	void IsEventEatApple(Game& game);
 	void IsEventPlayerBorderCollition(Game& game);
 	void IsEventPlayerStoneCollition(Game& game);
+	void IsEventGameOver(Game& game);
 }

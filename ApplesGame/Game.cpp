@@ -13,29 +13,19 @@ namespace ApplesGame
 		game.isGameOver = false;
 		game.pauseTime = 5.f;
 		game.numEatenApples = 0;
+
 		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\\Player.png"));
 		assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "\\Apple.png"));
 		assert(game.stoneTexture.loadFromFile(RESOURCES_PATH + "\\Rock.png"));
 
-		// UI
 		game.numEatenApples = 0;
 		game.font = InitFont();
 		game.scoreCounterLabel = InitUI(game.font);
 
-		// Player
 		InitPlayer(game.player, game);
+		InitApples(game);
+		InitStones(game);
 
-		// Apples
-		for (int i = 0; i < NUM_APPLES; ++i)
-		{
-			InitApple(game.apples[i], SCREEN_WIDTH, SCREEN_HEIGHT, game);
-		}
-
-		// Stones
-		for (int i = 0; i < NUM_STONES; ++i)
-		{
-			InitStone(game.stones[i], SCREEN_WIDTH, SCREEN_HEIGHT, game);
-		}
 	}
 
 	void updateGame(Game& game, float deltaTime)
@@ -48,10 +38,6 @@ namespace ApplesGame
 			IsEventEatApple(game);
 			IsEventPlayerBorderCollition(game);
 			IsEventPlayerStoneCollition(game);
-
-
-			// Stones collisions
-
 
 			// Restart
 			if (game.isGameOver)
@@ -89,15 +75,7 @@ namespace ApplesGame
 		window.draw(game.scoreCounterLabel);
 
 		RenderPlayer(game.player, window);
-
-		for (int i = 0; i < NUM_APPLES; ++i)
-		{
-			RenderApple(game.apples[i], window);
-		}
-
-		for (int i = 0; i < NUM_STONES; ++i)
-		{
-			RenderStone(game.stones[i], window);
-		}
+		RenderApples(game, window);
+		RenderStones(game, window);
 	}
 }

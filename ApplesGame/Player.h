@@ -25,7 +25,7 @@ namespace ApplesGame
 	// Forwart declaration (только ссылочные типы)
 	struct Game;
 
-	void InitPlayer(Player& player, const Game& game);
+	void InitPlayer(Player& player, Game& game);
 	void RenderPlayer(Player& player, sf::RenderWindow& window);
 	void IsKeyPressedToRotatePlayer(Player& player);
 	void MovingPlayer(Player& player, float deltaTime);

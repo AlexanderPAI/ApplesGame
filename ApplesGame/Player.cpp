@@ -1,3 +1,4 @@
+#include <cassert>
 #include "Constants.h"
 #include "Game.h"
 #include "Math.h"
@@ -5,13 +6,13 @@
 
 namespace ApplesGame
 {
-	void InitPlayer(Player& player, const Game& game)
+	void InitPlayer(Player& player, Game& game)
 	{
 		player.position = { SCREEN_WIDTH / 2.f, SCREEN_HEIGHT / 2.f };
 		player.speed = INITIAL_SPEED;
 		player.direction = PlayerDirection::Right;
-		player.sprite.setRotation(0.f);
 
+		player.sprite.setRotation(0.f);
 		player.sprite.setTexture(game.playerTexture);
 		SetSpriteSize(player.sprite, PLAYER_SIZE, PLAYER_SIZE);
 		SetSpriteRelativeOrigin(player.sprite, 0.5f, 0.5f);
