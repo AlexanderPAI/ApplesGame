@@ -27,4 +27,5 @@ namespace ApplesGame
 
 	void InitPlayer(Player& player, const Game& game);
 	void RenderPlayer(Player& player, sf::RenderWindow& window);
+	void IsKeyPressedToRotatePlayer(Player& player);
 }

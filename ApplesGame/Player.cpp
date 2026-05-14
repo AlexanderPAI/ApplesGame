@@ -22,4 +22,29 @@ namespace ApplesGame
 		player.sprite.setPosition(player.position.x, player.position.y);
 		window.draw(player.sprite);
 	}
+
+	void IsKeyPressedToRotatePlayer(Player& player)
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		{
+			player.direction = PlayerDirection::Right;
+			player.sprite.setRotation(0.f);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			player.direction = PlayerDirection::Up;
+			player.sprite.setRotation(-90.f);
+
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			player.direction = PlayerDirection::Left;
+			player.sprite.setRotation(180.f);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		{
+			player.direction = PlayerDirection::Down;
+			player.sprite.setRotation(90.f);
+		}
+	}
 }
