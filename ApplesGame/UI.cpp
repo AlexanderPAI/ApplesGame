@@ -25,7 +25,7 @@ namespace ApplesGame
 
 	void InitUI(Game& game)
 	{
-		game.numEatenApples = 0;
+		//game.numEatenApples = 0;
 		game.font = InitFont();
 		game.uiLabel = InitLabel(game.font);
 	}
@@ -36,6 +36,13 @@ namespace ApplesGame
 		game.uiLabel.setFillColor(sf::Color::Red);
 		game.uiLabel.setCharacterSize(50);
 
+	}
+
+	void ShowPauseLabel(Game& game)
+	{
+		game.uiLabel.setString("PAUSE");
+		game.uiLabel.setFillColor(sf::Color::Red);
+		game.uiLabel.setCharacterSize(50);
 	}
 
 	struct Game;

@@ -11,6 +11,7 @@ namespace ApplesGame
 		// GAME INITIALIZATION
 		// Init game data
 		game.isGameOver = false;
+		game.isPaused = true;
 		game.pauseTime = 5.f;
 		game.numEatenApples = 0;
 
@@ -49,14 +50,19 @@ namespace ApplesGame
 				ShowGameOverLabel(game);
 			}
 		}
-		else
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
 		{
-			game.pauseTimeLeft -= deltaTime;
-			if (game.pauseTimeLeft <= 0.f)
+			if (game.isPaused)
 			{
 				game.isPaused = false;
 				InitUI(game);
 			}
+			else
+			{
+				game.isPaused = true;
+				ShowPauseLabel(game);
+			}
+			
 		}
 	}
 
